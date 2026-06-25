@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D&D Mobile Detailing — Auto, Boat & RV Detailing, Brought to Your Driveway in Denver & Lakewood</title>
+<meta name="description" content="D&D Mobile Detailing brings interior and exterior detailing to your home or office across Denver and Lakewood. Real prices, booked in minutes. 5.0 on Google." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230C0C0D'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='30' font-weight='800' fill='%23E5362E' text-anchor='middle'%3EDD%3C/text%3E%3C/svg%3E" />
+<meta property="og:title" content="D&D Mobile Detailing — Showroom finish, your driveway" />
+<meta property="og:description" content="Mobile auto, boat & RV detailing across Denver & Lakewood. Build your quote and book in minutes. 5.0 on Google." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0C0C0D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="shell nav-in">
+    <a class="logo" href="#top">D&amp;D<span>Detailing</span></a>
+    <nav class="nav-links">
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Work</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <a class="cta-text" href="#pricing">Get a quote <span aria-hidden="true">&rsaquo;</span></a>
+  </div>
+</header>
+
+<!-- HERO: full-bleed photo, left-aligned restrained type, no pill -->
+<section class="hero" id="top">
+  <img class="hero-img" src="./images/hero.jpg" alt="A detailed car under studio light" />
+  <div class="hero-veil"></div>
+  <div class="shell hero-in">
+    <h1>Showroom finish.<br><em>Your driveway.</em></h1>
+    <p class="hero-sub">Interior and exterior detailing for cars, trucks, boats and RVs — done at your home or office across Denver &amp; Lakewood.</p>
+    <div class="hero-act">
+      <a class="btn" href="#pricing">Build your quote</a>
+      <a class="btn-quiet" href="tel:+17202496946">Call or text (720)&nbsp;249-6946</a>
+    </div>
+    <p class="hero-mark"><b>5.0</b> on Google &nbsp;·&nbsp; We come to you</p>
+  </div>
+</section>
+
+<!-- PRICING + QUOTE: one section. Packages side-by-side with details visible; selecting builds a live price -->
+<section class="price" id="pricing">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="over">Pricing</p>
+      <h2>Pick a package. See your price as you go.</h2>
+      <p class="sec-lead">Pick a package, add your vehicle and any extras, and your price updates as you go — no waiting on a callback. We confirm the final number after a couple of quick photos.</p>
+    </div>
+
+    <form id="quote">
+      <div class="tiers" role="radiogroup" aria-label="Detailing package">
+
+        <label class="tier">
+          <input type="radio" name="pkg" value="maint" data-base="99" />
+          <span class="tier-head">
+            <span class="tier-name">Maintenance Wash</span>
+            <span class="tier-price">from <b>$99</b></span>
+          </span>
+          <span class="tier-list">
+            <span>Two-bucket hand wash, spot-free rinse</span>
+            <span>Wheels &amp; tires cleaned and dressed</span>
+            <span>Door jambs wiped, interior spot vacuum</span>
+            <span>2-month paint sealant</span>
+          </span>
+        </label>
+
+        <label class="tier tier-feature">
+          <input type="radio" name="pkg" value="full" data-base="245" />
+          <span class="tier-tag">Most chosen</span>
+          <span class="tier-head">
+            <span class="tier-name">Full Detail</span>
+            <span class="tier-price">from <b>$245</b></span>
+          </span>
+          <span class="tier-list">
+            <span>Interior steam, shampoo &amp; extraction</span>
+            <span>Exterior hand wash + engine bay</span>
+            <span>Wheels &amp; tires dressed</span>
+            <span>6-month ceramic sealant</span>
+          </span>
+        </label>
+
+        <label class="tier">
+          <input type="radio" name="pkg" value="ceramic" data-base="799" />
+          <span class="tier-head">
+            <span class="tier-name">8-Yr Ceramic Coating</span>
+            <span class="tier-price">from <b>$799</b></span>
+          </span>
+          <span class="tier-list">
+            <span>Hand wash &amp; iron decontamination</span>
+            <span>Single-stage paint polish</span>
+            <span>8-year ceramic coating bonded to paint</span>
+            <span>Lasting gloss, easier washes for years</span>
+          </span>
+        </label>
+
+      </div>
+
+      <div class="builder">
+        <div class="build-rows">
+          <div class="build-row">
+            <span class="build-label">Your vehicle</span>
+            <div class="seg" role="radiogroup" aria-label="Vehicle size">
+              <label><input type="radio" name="veh" value="sedan" data-add="0" /><span>Sedan</span></label>
+              <label><input type="radio" name="veh" value="suv" data-add="30" /><span>SUV</span></label>
+              <label><input type="radio" name="veh" value="truck" data-add="50" /><span>Truck</span></label>
+              <label><input type="radio" name="veh" value="xl" data-add="70" /><span>Oversized</span></label>
+            </div>
+          </div>
+          <div class="build-row">
+            <span class="build-label">Add-ons</span>
+            <div class="extras">
+              <label class="ex"><input type="checkbox" name="ex" data-key="pethair" data-add="40" /><span>Pet hair removal <b data-price="+$40">+$40</b></span></label>
+              <label class="ex"><input type="checkbox" name="ex" data-key="stains" data-add="50" /><span>Heavy stains <b data-price="+$50">+$50</b></span></label>
+              <label class="ex"><input type="checkbox" name="ex" data-key="headlight" data-add="60" /><span>Headlight restoration <b data-price="+$60">+$60</b></span></label>
+              <label class="ex"><input type="checkbox" name="ex" data-key="leather" data-add="50" /><span>Leather / interior coat <b data-price="+$50">+$50</b></span></label>
+            </div>
+          </div>
+        </div>
+
+        <aside class="estimate">
+          <p class="est-label">Your estimate</p>
+          <p class="est-num" id="est">$—</p>
+          <p class="est-note" id="estNote">Pick a package to start.</p>
+          <button type="button" class="btn btn-block" id="bookBtn">Book this detail</button>
+          <p class="est-fine">Boats &amp; RVs are quoted by phone. Final price confirmed after a couple of photos.</p>
+        </aside>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- WORK: uniform gallery -->
+<section class="work" id="work">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="over">The work, up close</p>
+      <h2>Paint correction. Ceramic. Interiors.</h2>
+    </div>
+    <div class="grid">
+      <figure><img src="./images/gal-1.jpg" alt="Detailed back-seat interior" /></figure>
+      <figure><img src="./images/gal-2.jpg" alt="Cleaned and conditioned interior" /></figure>
+      <figure><img src="./images/gal-3.jpg" alt="Cleaned wheel and tire" /></figure>
+      <figure><img src="./images/gal-4.jpg" alt="Detailed dashboard and console" /></figure>
+      <figure><img src="./images/gal-5.jpg" alt="Refreshed seats" /></figure>
+      <figure><img src="./images/gal-6.jpg" alt="Cleaned door jamb and entry" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS: one real quote, editorial -->
+<section class="reviews" id="reviews">
+  <div class="shell reviews-in">
+    <p class="over">What customers say</p>
+    <blockquote>
+      Needed a detail to sell my vehicle and was hoping to find a reasonable mobile service. They did great work, on time and good pricing. My 3-year-old truck looked as good as the day I drove it off the lot — <b>it sold 24 hours after I posted it.</b>
+    </blockquote>
+    <cite>Verified Yelp review · 2021 &nbsp;·&nbsp; 5.0 on Google</cite>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area" id="area">
+  <div class="shell area-in">
+    <div class="area-copy">
+      <p class="over">Service area</p>
+      <h2>We come to you.</h2>
+      <p class="sec-lead">Fully mobile across Denver, Lakewood and the west metro — your driveway, your office lot, wherever the vehicle sits. Just outside the ring? Call us, we often still make it work.</p>
+      <ul class="area-cities">
+        <li>Denver</li><li>Lakewood</li><li>Wheat Ridge</li><li>Arvada</li><li>Golden</li><li>Edgewater</li>
+      </ul>
+    </div>
+    <div class="area-map">
+      <div id="map" aria-label="Map of the Denver-metro service area"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="end">
+  <div class="shell end-in">
+    <h2>Ready when you are.</h2>
+    <p>Build your quote in a minute, or just call. We come to you across Denver &amp; Lakewood.</p>
+    <div class="hero-act">
+      <a class="btn" href="#pricing">Build your quote</a>
+      <a class="btn-quiet" href="tel:+17202496946">Call or text (720)&nbsp;249-6946</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <div>
+      <a class="logo" href="#top">D&amp;D<span>Detailing</span></a>
+      <p class="foot-note">Mobile auto, boat &amp; RV detailing. We come to you.</p>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h">Service area</span>
+      <p>Denver · Lakewood · Wheat Ridge · Arvada · Golden · Edgewater</p>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h">Contact</span>
+      <p><a href="tel:+17202496946">(720) 249-6946</a><br>By appointment — call or text to book.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&lsaquo;</button>
+  <img class="lb-img" id="lbImg" alt="" />
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&rsaquo;</button>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bk" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bkTitle">
+  <div class="modal-card">
+    <button type="button" class="modal-x" id="bkClose" aria-label="Close">&times;</button>
+
+    <div class="bk-step" id="bkForm">
+      <p class="over">Book your detail</p>
+      <h3 id="bkTitle">A couple details and we'll lock it in.</h3>
+
+      <div class="bk-summary" id="bkSummary"></div>
+
+      <div class="bk-field">
+        <label class="build-label" for="bkDate">Preferred date</label>
+        <input type="date" id="bkDate" class="bk-input" />
+      </div>
+
+      <div class="bk-field">
+        <span class="build-label">Time window</span>
+        <div class="seg seg-3" id="bkTime" role="radiogroup" aria-label="Time window">
+          <label><input type="radio" name="bktime" value="Morning (8–11)" /><span>Morning</span></label>
+          <label><input type="radio" name="bktime" value="Midday (11–2)" /><span>Midday</span></label>
+          <label><input type="radio" name="bktime" value="Afternoon (2–5)" /><span>Afternoon</span></label>
+        </div>
+      </div>
+
+      <div class="bk-grid">
+        <div class="bk-field">
+          <label class="build-label" for="bkName">Name</label>
+          <input type="text" id="bkName" class="bk-input" autocomplete="name" />
+        </div>
+        <div class="bk-field">
+          <label class="build-label" for="bkPhone">Mobile</label>
+          <input type="tel" id="bkPhone" class="bk-input" autocomplete="tel" placeholder="(720) 555-0199" />
+        </div>
+      </div>
+
+      <div class="bk-field">
+        <label class="build-label" for="bkAddr">Where we're coming (address or area)</label>
+        <input type="text" id="bkAddr" class="bk-input" autocomplete="street-address" placeholder="Street, city" />
+      </div>
+
+      <p class="bk-err" id="bkErr" hidden>Add your name and a mobile number so we can confirm.</p>
+      <button type="button" class="btn btn-block" id="bkSubmit">Request this time</button>
+      <p class="est-fine">No charge yet. We text you to confirm the time and final price, then you're booked.</p>
+    </div>
+
+    <div class="bk-step" id="bkDone" hidden>
+      <div class="bk-check" aria-hidden="true">✓</div>
+      <h3>You're on the list.</h3>
+      <p class="bk-done-note" id="bkDoneNote"></p>
+      <a class="btn btn-block" id="bkText" href="#">Text us to confirm now</a>
+      <button type="button" class="btn-quiet bk-restart" id="bkRestart">Edit my request</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var DD = (function(){
+  var PHONE = '+17202496946';
+  var form = document.getElementById('quote');
+  var est = document.getElementById('est');
+  var note = document.getElementById('estNote');
+  var PKG = { maint:'Maintenance Wash', full:'Full Detail', ceramic:'8-Yr Ceramic Coating' };
+  var VEH = { sedan:'Sedan', suv:'SUV', truck:'Truck', xl:'Oversized' };
+  var EXN = { pethair:'Pet hair removal', stains:'Heavy stains', headlight:'Headlight restoration', leather:'Leather / interior coat' };
+  // Add-ons each package already covers (editable assumptions):
+  // Full Detail bundles the leather/interior coat; the 8-Yr Ceramic bundles headlight restoration.
+  var INCLUDED = { maint:[], full:['leather'], ceramic:['headlight'] };
+  function val(sel){ return form.querySelector(sel+':checked'); }
+  function money(n){ return '$' + n.toLocaleString('en-US'); }
+  function applyIncluded(){
+    var pkg = val('input[name="pkg"]');
+    var inc = pkg ? (INCLUDED[pkg.value] || []) : [];
+    Array.prototype.forEach.call(form.querySelectorAll('input[name="ex"]'), function(e){
+      var b = e.parentNode.querySelector('b');
+      var covered = inc.indexOf(e.dataset.key) > -1;
+      if(covered){
+        e.checked = true; e.disabled = true;
+        b.textContent = 'Included';
+      } else {
+        e.disabled = false;
+        if(b.textContent === 'Included'){ e.checked = false; }
+        b.textContent = b.dataset.price;
+      }
+    });
+  }
+  function getQuote(){
+    var pkg = val('input[name="pkg"]');
+    var veh = val('input[name="veh"]');
+    var extras = [];
+    var base = pkg ? parseInt(pkg.dataset.base,10) : 0;
+    var add = veh ? parseInt(veh.dataset.add,10) : 0;
+    var exTotal = 0;
+    Array.prototype.forEach.call(form.querySelectorAll('input[name="ex"]:checked'), function(e){
+      var paid = !e.disabled;
+      if(paid){ exTotal += parseInt(e.dataset.add,10); }
+      extras.push({ name: EXN[e.dataset.key], included: !paid, price: paid ? parseInt(e.dataset.add,10) : 0 });
+    });
+    return {
+      hasPkg: !!pkg,
+      pkg: pkg ? PKG[pkg.value] : null,
+      veh: veh ? VEH[veh.value] : null,
+      extras: extras,
+      total: base + add + exTotal
+    };
+  }
+  function render(){
+    var q = getQuote();
+    if(!q.hasPkg){ est.textContent='$—'; note.textContent='Pick a package to start.'; return; }
+    est.textContent = money(q.total);
+    note.textContent = q.veh ? 'Final price confirmed after photos.' : 'Add your vehicle for an exact estimate.';
+  }
+  form.addEventListener('change', function(e){
+    if(e.target.name === 'pkg'){ applyIncluded(); }
+    render();
+  });
+  return { getQuote:getQuote, money:money, phone:PHONE };
+})();
+
+/* ── Lightbox ─────────────────────────────────────────── */
+(function(){
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('.grid figure img'));
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+  var i = 0;
+  function show(n){ i = (n + imgs.length) % imgs.length; lbImg.src = imgs[i].src; lbImg.alt = imgs[i].alt; }
+  function open(n){ show(n); lb.classList.add('on'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('on'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  imgs.forEach(function(img,n){ img.addEventListener('click', function(){ open(n); }); img.style.cursor='zoom-in'; });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function(){ show(i-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ show(i+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(i-1);
+    if(e.key === 'ArrowRight') show(i+1);
+  });
+})();
+
+/* ── Booking modal ────────────────────────────────────── */
+(function(){
+  var bk = document.getElementById('bk');
+  var summary = document.getElementById('bkSummary');
+  var stepForm = document.getElementById('bkForm'), stepDone = document.getElementById('bkDone');
+  function open(){
+    var q = DD.getQuote();
+    var html;
+    if(q.hasPkg){
+      html = '<div class="bk-sum-row"><span>' + q.pkg + (q.veh ? ' · ' + q.veh : '') + '</span><b>' + DD.money(q.total) + '</b></div>';
+      var paid = q.extras.filter(function(x){ return !x.included; });
+      var inc = q.extras.filter(function(x){ return x.included; });
+      if(paid.length) html += '<div class="bk-sum-add">+ ' + paid.map(function(x){ return x.name; }).join(', ') + '</div>';
+      if(inc.length)  html += '<div class="bk-sum-add bk-sum-inc">Included: ' + inc.map(function(x){ return x.name; }).join(', ') + '</div>';
+      html += '<div class="bk-sum-fine">Estimate — final price confirmed after a couple of photos.</div>';
+    } else {
+      html = '<div class="bk-sum-row"><span>Custom detail</span><b>Quote by text</b></div><div class="bk-sum-fine">Tell us what you need and we\'ll price it.</div>';
+    }
+    summary.innerHTML = html;
+    stepDone.hidden = true; stepForm.hidden = false;
+    bk.classList.add('on'); bk.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    document.getElementById('bkErr').hidden = true;
+  }
+  function close(){ bk.classList.remove('on'); bk.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  document.getElementById('bookBtn').addEventListener('click', open);
+  document.getElementById('bkClose').addEventListener('click', close);
+  bk.addEventListener('click', function(e){ if(e.target === bk) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && bk.classList.contains('on')) close(); });
+
+  document.getElementById('bkSubmit').addEventListener('click', function(){
+    var name = document.getElementById('bkName').value.trim();
+    var phone = document.getElementById('bkPhone').value.trim();
+    if(!name || !phone){ document.getElementById('bkErr').hidden = false; return; }
+    var date = document.getElementById('bkDate').value;
+    var t = bk.querySelector('input[name="bktime"]:checked');
+    var addr = document.getElementById('bkAddr').value.trim();
+    var q = DD.getQuote();
+    var lines = ['Detail request — ' + name];
+    if(q.hasPkg){
+      lines.push(q.pkg + (q.veh ? ' (' + q.veh + ')' : '') + ' — ' + DD.money(q.total) + ' est.');
+      var paid = q.extras.filter(function(x){ return !x.included; }).map(function(x){ return x.name; });
+      if(paid.length) lines.push('Add-ons: ' + paid.join(', '));
+    } else { lines.push('Custom detail'); }
+    if(date) lines.push('Date: ' + date);
+    if(t) lines.push('Time: ' + t.value);
+    if(addr) lines.push('Location: ' + addr);
+    lines.push('Phone: ' + phone);
+    var body = encodeURIComponent(lines.join('\n'));
+    // Demo handoff: prefilled SMS. (Swap for a POST to the booking worker when the backend is live.)
+    document.getElementById('bkText').href = 'sms:' + DD.phone + '?&body=' + body;
+    document.getElementById('bkDoneNote').textContent =
+      'We\'ll text ' + phone + ' to confirm your time' + (date ? ' on ' + date : '') + ' and the final price. Want to reach us first? Send the request straight to our phone:';
+    stepForm.hidden = true; stepDone.hidden = false;
+  });
+  document.getElementById('bkRestart').addEventListener('click', function(){ stepDone.hidden = true; stepForm.hidden = false; });
+})();
+
+/* ── Scroll reveal (subtle fade-up, progressive enhancement) ── */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)) return;
+  var sel = ['.price .sec-head','.tiers','.builder','.work .sec-head','.grid figure','.reviews-in','.area-in','.end-in'];
+  var els = [];
+  sel.forEach(function(s){ Array.prototype.forEach.call(document.querySelectorAll(s), function(el){ els.push(el); }); });
+  els.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i % 3) * 70) + 'ms'; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ── Service-area map (Leaflet, dark) ── */
+window.addEventListener('load', function(){
+  var el = document.getElementById('map');
+  if(!el || !window.L) return;
+  var center = [39.742, -105.045];
+  var map = L.map(el, { zoomControl:true, scrollWheelZoom:true, attributionControl:true }).setView(center, 11);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 18, minZoom: 9, subdomains:'abcd',
+    attribution:'&copy; OpenStreetMap &copy; CARTO'
+  }).addTo(map);
+  var ring = L.circle(center, { radius: 18000, color:'#E5362E', weight:1.5, opacity:.9, fillColor:'#E5362E', fillOpacity:.06 }).addTo(map);
+  var cities = [['Denver',39.7392,-104.9903],['Lakewood',39.7047,-105.0814],['Wheat Ridge',39.7661,-105.0772],['Arvada',39.8028,-105.0875],['Golden',39.7555,-105.2211],['Edgewater',39.7536,-105.0586]];
+  cities.forEach(function(c){
+    L.circleMarker([c[1],c[2]], { radius:4, color:'#fff', weight:1, fillColor:'#E5362E', fillOpacity:1 })
+      .addTo(map).bindTooltip(c[0], { direction:'top', offset:[0,-4] });
+  });
+  // Frame the whole coverage ring with padding so it never clips.
+  map.fitBounds(ring.getBounds(), { padding: [34, 34] });
+  map.setMinZoom(map.getZoom() - 1);
+});
+</script>
+</body>
+</html>
