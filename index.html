@@ -436,17 +436,20 @@ window.addEventListener('load', function(){
   var el = document.getElementById('map');
   if(!el || !window.L) return;
   var center = [39.742, -105.045];
-  var map = L.map(el, { zoomControl:true, scrollWheelZoom:false, attributionControl:true }).setView(center, 11);
+  var map = L.map(el, { zoomControl:true, scrollWheelZoom:true, attributionControl:true }).setView(center, 11);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18, subdomains:'abcd',
+    maxZoom: 18, minZoom: 9, subdomains:'abcd',
     attribution:'&copy; OpenStreetMap &copy; CARTO'
   }).addTo(map);
-  L.circle(center, { radius: 19000, color:'#E5362E', weight:1.5, opacity:.85, fillColor:'#E5362E', fillOpacity:.07 }).addTo(map);
+  var ring = L.circle(center, { radius: 18000, color:'#E5362E', weight:1.5, opacity:.9, fillColor:'#E5362E', fillOpacity:.06 }).addTo(map);
   var cities = [['Denver',39.7392,-104.9903],['Lakewood',39.7047,-105.0814],['Wheat Ridge',39.7661,-105.0772],['Arvada',39.8028,-105.0875],['Golden',39.7555,-105.2211],['Edgewater',39.7536,-105.0586]];
   cities.forEach(function(c){
     L.circleMarker([c[1],c[2]], { radius:4, color:'#fff', weight:1, fillColor:'#E5362E', fillOpacity:1 })
       .addTo(map).bindTooltip(c[0], { direction:'top', offset:[0,-4] });
   });
+  // Frame the whole coverage ring with padding so it never clips.
+  map.fitBounds(ring.getBounds(), { padding: [34, 34] });
+  map.setMinZoom(map.getZoom() - 1);
 });
 </script>
 </body>
